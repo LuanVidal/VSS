@@ -37,15 +37,15 @@
 
 #include <Arduino.h>
 #if defined(ESP8266)
-  #include <WiFi.h>
-#elif defined(ESP32)
   #include <WiFi.h> // Using Espressif's WiFi.h
 #else
   #include <SPI.h>
   #include <Ethernet.h>
+  
 #endif
 
 class ArduinoHardware {
+  
 public:
   ArduinoHardware()
   {
@@ -59,6 +59,7 @@ public:
 
   IPAddress getLocalIP()
   {
+
 #if defined(ESP8266) or defined(ESP32)
     return tcp_.localIP();
 #else
